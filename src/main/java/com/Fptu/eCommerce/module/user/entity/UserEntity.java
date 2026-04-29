@@ -1,12 +1,18 @@
 package com.Fptu.eCommerce.module.user.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Table;
 
 import java.time.LocalDateTime;
 
 
+
 @Entity
+@Table(name = "users")
 public class UserEntity {
+    private Long id;
     private String name;
     private String email;
     private String password;
@@ -19,15 +25,24 @@ public class UserEntity {
     public UserEntity() {
     }
 
-    public UserEntity(String status, LocalDateTime updatedAt, String role, String password, String name, String email, LocalDateTime createdAt, String phone) {
-        this.status = status;
-        this.updatedAt = updatedAt;
-        this.role = role;
-        this.password = password;
-        this.name = name;
-        this.email = email;
+    public UserEntity(LocalDateTime createdAt, LocalDateTime updatedAt, String status, String role, String phone, String password, Long id, String email, String name) {
         this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+        this.status = status;
+        this.role = role;
         this.phone = phone;
+        this.password = password;
+        this.id = id;
+        this.email = email;
+        this.name = name;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public LocalDateTime getCreatedAt() {
