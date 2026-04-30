@@ -12,9 +12,7 @@ public class ProductMapper {
         for (ProductEntity entity : entities) {
             ProductDto productDto = new ProductDto();
 
-
         }
-
         return result;
     }
 }

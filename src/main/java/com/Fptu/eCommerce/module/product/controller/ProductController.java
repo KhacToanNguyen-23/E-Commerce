@@ -19,17 +19,17 @@ public class ProductController {
         return null;
     }
 
-    @PostMapping("/api/product")
+    @PostMapping("/api/products")
     public ProductDto create(@RequestBody ProductDto productDto){
         return null;
     }
 
-    @PutMapping("/api/product")
+    @PutMapping("/api/products")
     public ProductDto update(@RequestBody ProductDto productDto){
         return null;
     }
 
-    @DeleteMapping("/api/product")
+    @DeleteMapping("/api/products")
     public void delete(@RequestBody ProductDto productDto){
 
     }
