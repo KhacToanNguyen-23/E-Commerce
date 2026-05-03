@@ -18,4 +18,9 @@ public class ProductService {
         List<ProductEntity> entities = productRepository.findByName(name);
         return result = productMapper.toDTOlist(entities);
     }
+
+
+
+
+
 }

@@ -11,6 +11,15 @@ import java.util.List;
 public class UserController {
     private UserService userService;
 
+    @PostMapping("/login")
+    public UserDTO login(@RequestParam String name, @RequestParam String password) {
+        UserDTO userDTO = userService.checkLogin(name, password);
+        if (userDTO != null) {
+            return userDTO;
+        }
+        return userDTO;
+    }
+
     @GetMapping("/search")
     public List<UserDTO> searchUser(@RequestParam String name){
         List<UserDTO> results = userService.finByName(name);
@@ -34,6 +43,9 @@ public class UserController {
     public void update(@RequestBody UserDTO userDTO){
         userService.update(userDTO);
     }
+
+
+
 
 
 

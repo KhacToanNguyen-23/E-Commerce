@@ -24,4 +24,12 @@ public class UserMapper {
         }
         return result;
     }
+
+    public UserDTO toDTO(UserEntity entity) {
+        UserDTO userDTO = new UserDTO();
+        userDTO.setName(entity.getName());
+        userDTO.setEmail(entity.getEmail());
+        userDTO.setPhone(entity.getPhone());
+        return userDTO;
+    }
 }

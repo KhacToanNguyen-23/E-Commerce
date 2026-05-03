@@ -33,4 +33,10 @@ public class UserService {
     public void update(UserDTO userDTO) {
         userRepository.update(userDTO);
     }
+
+    public UserDTO checkLogin(String name, String password) {
+        UserEntity entity = userRepository.checkLogin(name, password);
+        UserDTO result = userMapper.toDTO(entity);
+        return result;
+    }
 }

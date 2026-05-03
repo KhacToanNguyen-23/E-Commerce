@@ -43,4 +43,8 @@ public class UserRepository {
     public void update(UserDTO userDTO) {
         // nghiệp vụ update vào database
     }
+
+    public UserEntity checkLogin(String name, String password) {
+        return null;
+    }
 }
