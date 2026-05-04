@@ -1,127 +1,131 @@
-# E-Commerce Project
+# E-Commerce Backend System
 
-## Introduction
+## Overview
 
-Brief description of your project.
+This is a personal backend project for an e-commerce system built with Spring Boot.
+The project focuses on implementing core backend functionalities such as authentication, authorization, and order processing, while progressively improving system design and scalability.
 
 ---
 
-## Features
+## Objectives
 
-* User authentication (Login / Register)
-* Product listing
-* Product detail
-* Shopping cart
-* Order management
-* Payment integration
-* Admin dashboard
-* Search & filter
+* Build a real-world backend project from scratch
+* Practice RESTful API development with Spring Boot
+* Strengthen understanding of backend architecture
+* Prepare for Java Backend Internship roles
+* Explore deployment using Docker and Cloud (AWS)
 
 ---
 
 ## Tech Stack
 
-### Backend
+* Backend: Spring Boot
+* Database: MySQL
+* Security: Spring Security + JWT
+* Build Tool: Maven
+* API Testing: Postman
+* Containerization (Planned): Docker
+* Cloud Deployment (Planned): AWS
 
-* Language:
-* Framework:
-* Database:
-* ORM:
+---
 
-### Frontend
+## Features
 
-* HTML / CSS / JavaScript
-* Framework (if any):
+* User Registration & Login (JWT Authentication)
+* Role-based Authorization (ADMIN / USER)
+* Product Management (CRUD APIs)
+* Shopping Cart System
+* Order Processing (Mock Payment)
+* Product Search & Filtering
 
-### Other Tools
+---
 
-* Git
-* Docker (optional)
-* Postman
+## Key Highlights
+
+* Implemented JWT-based Authentication
+* Designed Role-based Access Control (RBAC)
+* Applied Layered Architecture (Controller - Service - Repository)
+* Used DTO Pattern for data transfer
+* Implemented custom mapping layer
+* Developing Global Exception Handling
+* Applying Request Validation using annotations
 
 ---
 
 ## Project Structure
 
-```bash
-ecommerce/
-│── src/
-│   ├── controller/
-│   ├── service/
-│   ├── repository/
-│   ├── model/
-│   ├── dto/
-│   └── config/
-│
-│── resources/
-│── pom.xml / build.gradle
-│── README.md
+```text
+src/main/java/com.yourapp.ecommerce
+ ├── configuration        # Security & application config
+ ├── exceptionhandle      # Global exception handling
+ ├── security             # JWT authentication & authorization
+ ├── module.user
+ │    ├── controller      # REST APIs
+ │    ├── service         # Business logic
+ │    ├── repository      # Data access layer
+ │    ├── dto             # Request/Response objects
+ │    ├── entity          # Database entities
+ │    ├── mapping         # DTO mapping logic
 ```
 
 ---
 
-## Installation
+## Database Design (In Progress)
 
-### 1. Clone project
+Main entities:
+
+* Users
+* Products
+* Orders
+* Order Items
+* Cart
+
+Relationships:
+
+* One User → Many Orders
+* One Order → Many Order Items
+* One Product → Many Order Items
+
+---
+
+## Getting Started
+
+### Clone repository
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/your-username/ecommerce.git
+cd ecommerce
 ```
 
-### 2. Setup database
+### Run application
 
 ```bash
-# configure your database here
-```
-
-### 3. Run project
-
-```bash
-# command to run the project
+mvn clean install
+mvn spring-boot:run
 ```
 
 ---
 
-## API Documentation
+## API Testing
 
-| Method | Endpoint  | Description      |
-| ------ | --------- | ---------------- |
-| GET    | /products | Get all products |
-| POST   | /login    | User login       |
-| ...    | ...       | ...              |
-
----
-
-## Screenshots
-
-(Add UI screenshots here)
+* Tested using Postman
+* Swagger documentation will be added in future versions
 
 ---
 
 ## Future Improvements
 
-* Payment integration (VNPay / Stripe)
-* Email notification
-* Recommendation system
-* Cloud deployment
-* Performance optimization
+* Implement Refresh Token
+* Add Pagination & Sorting
+* Integrate Redis for caching
+* Add Logging & Monitoring
+* Dockerize the application
+* Deploy to AWS
+* Refactor towards Clean Architecture
 
 ---
 
 ## Author
 
-* Name:
-* GitHub:
-* Email:
-
----
-
-## License
-
-License information (MIT, Apache 2.0, etc.)
-
----
-
-## Notes
-
-Additional notes if needed.
+Nguyễn Khắc Toàn
+Java Backend Developer (Spring Boot)
