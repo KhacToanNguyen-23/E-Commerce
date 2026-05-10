@@ -1,39 +1,75 @@
 package com.Fptu.eCommerce.module.user.entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
+import org.antlr.v4.runtime.misc.NotNull;
 
 import java.time.LocalDateTime;
 
 
-
+@Data
 @Entity
 @Table(name = "users")
 public class UserEntity {
 
     @Id
     private Long id;
-    private String name;
+    private String username;
+    @NotNull
     private String email;
+    @NotNull
     private String password;
     private String phone;
     private String role;
     private String status;
+    private String address;
+    private String city;
+    private String state;
+    private String country;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
     public UserEntity() {
     }
 
-    public UserEntity(LocalDateTime createdAt, LocalDateTime updatedAt, String status, String role, String phone, String password, Long id, String email, String name) {
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
-        this.status = status;
-        this.role = role;
-        this.phone = phone;
-        this.password = password;
-        this.id = id;
-        this.email = email;
-        this.name = name;
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public Long getId() {
@@ -92,12 +128,12 @@ public class UserEntity {
         this.password = password;
     }
 
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserName(String name) {
+        this.username = name;
     }
 
     public String getEmail() {
