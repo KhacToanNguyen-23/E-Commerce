@@ -1,40 +1,30 @@
-package com.Fptu.eCommerce.module.product.entity;
+package com.Fptu.eCommerce.module.product.dto;
 
-import com.Fptu.eCommerce.module.category.entity.CategoryEntity;
-import jakarta.persistence.ManyToOne;
 import lombok.Data;
 
-import java.time.LocalDateTime;
 @Data
-public class ProductEntity {
-
+public class ProductRequestDto {
     private Long id;
     private String name;
     private String description;
     private double price;
     private boolean active;
-    @ManyToOne
-    private CategoryEntity category;
+    private String category_id;
     private String image; // Ảnh chính
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
     private Integer stockQuantity;
 
-    public ProductEntity() {
-    }
-
-    public ProductEntity(boolean active, Integer stockQuantity, LocalDateTime updatedAt, double price, String name, String image, Long id, String description, LocalDateTime createdAt, CategoryEntity category) {
-        this.active = active;
-        this.stockQuantity = stockQuantity;
-        this.updatedAt = updatedAt;
+    public ProductRequestDto(double price, Integer stockQuantity, String name, String image, Long id, String description, String category_id, boolean active) {
         this.price = price;
+        this.stockQuantity = stockQuantity;
         this.name = name;
         this.image = image;
         this.id = id;
         this.description = description;
-        this.createdAt = createdAt;
-        this.category = category;
+        this.category_id = category_id;
+        this.active = active;
     }
+
+    public ProductRequestDto() {}
 
     public boolean isActive() {
         return active;
@@ -42,14 +32,6 @@ public class ProductEntity {
 
     public void setActive(boolean active) {
         this.active = active;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
     }
 
     public Integer getStockQuantity() {
@@ -100,20 +82,8 @@ public class ProductEntity {
         this.description = description;
     }
 
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
+    public String getCategory_id() {
+        return category_id;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public CategoryEntity getCategory() {
-        return category;
-    }
-
-    public void setCategory(CategoryEntity category) {
-        this.category = category;
-    }
 }
-

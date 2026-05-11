@@ -1,8 +1,9 @@
 package com.Fptu.eCommerce.module.product.dto;
 
-import com.Fptu.eCommerce.module.category.entity.CategoryEntity;
+import lombok.Data;
 
-public class ProductDto {
+@Data
+public class ProductResponseDto {
     private Long id;
     private String name;
     private String description;
@@ -12,7 +13,7 @@ public class ProductDto {
     private String image; // Ảnh chính
     private Integer stockQuantity;
 
-    public ProductDto(double price, Integer stockQuantity, String name, String image, Long id, String description, String category_id, boolean active) {
+    public ProductResponseDto(double price, Integer stockQuantity, String name, String image, Long id, String description, String category_id, boolean active) {
         this.price = price;
         this.stockQuantity = stockQuantity;
         this.name = name;
@@ -23,7 +24,7 @@ public class ProductDto {
         this.active = active;
     }
 
-    public ProductDto() {}
+    public ProductResponseDto() {}
 
     public boolean isActive() {
         return active;
@@ -83,9 +84,5 @@ public class ProductDto {
 
     public String getCategory_id() {
         return category_id;
-    }
-
-    public void setCategory_id(String category_id) {
-        this.category_id = category_id;
     }
 }

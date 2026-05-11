@@ -1,23 +1,23 @@
-package com.Fptu.eCommerce.module.category.entity;
+package com.Fptu.eCommerce.module.category.dto;
 
 import lombok.Data;
 
 @Data
-public class CategoryEntity {
+public class CategoryRequestDto {
     private Long id;
     private String name;
     private String description;
     private Double price;
     private boolean active = true;
 
-    public CategoryEntity(boolean active, Double price, String name, Long id, String description) {
+    public CategoryRequestDto(boolean active, Double price, String name, Long id, String description) {
         this.active = active;
         this.price = price;
         this.name = name;
         this.id = id;
         this.description = description;
     }
-    public CategoryEntity() {}
+    public CategoryRequestDto() {}
 
     public Long getId() {
         return id;
@@ -50,6 +50,4 @@ public class CategoryEntity {
     public void setActive(boolean active) {
         this.active = active;
     }
-
-
 }
