@@ -1,33 +1,19 @@
-HELP.md
-target/
-.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
-
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
-
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
-
-### VS Code ###
+# Chặn các file rác của IDE (cho cả IntelliJ và VS Code)
+.idea/
 .vscode/
+*.iml
+*.iws
+
+# Chặn file rác của Backend (Spring Boot)
+**/target/
+**/build/
+.mvn/wrapper/maven-wrapper.jar
+
+# Chặn file rác của Frontend
+**/node_modules/
+**/dist/
+.env.local
+
+# Chặn các file hệ thống
+.DS_Store
+Thumbs.db
