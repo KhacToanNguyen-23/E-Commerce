@@ -1,10 +1,10 @@
-package com.Fptu.eCommerce.module.user.entity;
+package com.Fptu.eCommerce.module.order.entity;
 
+import com.Fptu.eCommerce.module.user.entity.UserEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.antlr.v4.runtime.misc.NotNull;
 
 import java.time.LocalDateTime;
 
@@ -12,29 +12,24 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "users")
-public class UserEntity {
+@Table(name = "orders")
+public class OrderEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String username;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    private UserEntity user;
 
-    @NotNull
-    private String email;
-
-    @NotNull
-    private String password;
-
-    private String phone;
-    private String role;
-    private String status;
-    private String address;
-    private String city;
-    private String state;
-    private String country;
+    private Double totalAmount;
     
+    private String status; // PENDING, PROCESSING, SHIPPED, DELIVERED, CANCELLED
+
+    private String shippingAddress;
+    private String paymentMethod;
+
     @Column(updatable = false)
     private LocalDateTime createdAt;
     
@@ -44,6 +39,7 @@ public class UserEntity {
     protected void onCreate() {
         createdAt = LocalDateTime.now();
         updatedAt = LocalDateTime.now();
+        if (status == null) status = "PENDING";
     }
 
     @PreUpdate
