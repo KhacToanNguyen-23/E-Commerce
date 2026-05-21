@@ -54,7 +54,7 @@ public class ProductService implements IProductService {
 
     @Override
     public List<ProductResponseDto> searchProductsByName(String name) {
-        List<ProductEntity> entities = productRepository.findByProductName(name);
+        List<ProductEntity> entities = productRepository.findByName(name);
         return productMapper.toDTOList(entities);
     }
 }

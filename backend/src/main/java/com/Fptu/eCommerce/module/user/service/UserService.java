@@ -1,36 +1,29 @@
 package com.Fptu.eCommerce.module.user.service;
 
-import com.Fptu.eCommerce.module.user.dto.UserRequestDto;
 import com.Fptu.eCommerce.module.user.dto.UserResponseDto;
-import com.Fptu.eCommerce.module.user.entity.UserEntity;
-
 import com.Fptu.eCommerce.module.user.mapping.UserMapper;
 import com.Fptu.eCommerce.module.user.repository.UserRepository;
 import jakarta.transaction.Transactional;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class UserService {
-    @Autowired
-    private UserRepository userRepository;
-    @Autowired
-    private UserMapper userMapper;
-
-    private UserEntity entity;
-
+    private final UserRepository userRepository;
+    private final UserMapper userMapper;
 
     public List<UserResponseDto> findByName(String username) {
-        List<UserEntity> userEntities =userRepository.findByUsername(username);
-        return userMapper.toDTOList(userEntities);
+        return userMapper.toDTOList(userRepository.findByUsernameContainingIgnoreCase(username));
     }
 
 
 
     @Transactional
     public void delete(Long id) {
-        if(!userRepository.existsById(Math.toIntExact(id))){
+        if (!userRepository.existsById(id)) {
             throw new RuntimeException("User not found with id: " + id);
         }
         userRepository.deleteById(id);
@@ -39,9 +32,7 @@ public class UserService {
 
 
     public List<UserResponseDto> findAll() {
-        List<UserEntity> entityList = (List<UserEntity>) userRepository.findAll();
-        List<UserResponseDto> userResponseDtoList = userMapper.toDTOList(entityList);
-        return userResponseDtoList;
+        return userMapper.toDTOList(userRepository.findAll());
     }
 
 

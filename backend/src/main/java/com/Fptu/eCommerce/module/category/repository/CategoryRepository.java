@@ -1,7 +1,7 @@
 package com.Fptu.eCommerce.module.category.repository;
 
-import com.Fptu.eCommerce.module.category.dto.CategoryResponseDto;
+import com.Fptu.eCommerce.module.category.entity.CategoryEntity;
 import org.springframework.data.repository.CrudRepository;
 
-public interface CategoryRepository extends CrudRepository<CategoryResponseDto, Long> {
+public interface CategoryRepository extends CrudRepository<CategoryEntity, Long> {
 }
