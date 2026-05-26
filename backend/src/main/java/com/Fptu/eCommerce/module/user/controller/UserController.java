@@ -1,14 +1,15 @@
 package com.Fptu.eCommerce.module.user.controller;
-import com.Fptu.eCommerce.module.user.dto.UserRequestDto;
 import com.Fptu.eCommerce.module.user.dto.UserResponseDto;
 import com.Fptu.eCommerce.module.user.service.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/users")
+@RequiredArgsConstructor
 public class UserController {
-    private UserService userService;
+    private final UserService userService;
 
 
     @GetMapping("/search")

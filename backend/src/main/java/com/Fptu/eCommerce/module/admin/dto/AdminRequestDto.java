@@ -1,0 +1,15 @@
+package com.Fptu.eCommerce.module.admin.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class AdminRequestDto {
+    private String username;
+    private String email;
+    private String role;
+    private String status;
+}

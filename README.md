@@ -35,7 +35,9 @@ The system is split into distinct, self-contained business modules:
 * **Category Module:** Category hierarchy, management (CRUD).
 * **Product Module:** Product listings, stock management, linked with categories.
 * **Cart Module:** Personal shopping carts (One-to-One mapping with Users) and Cart Items.
-* **Order Module:** Order processing, status tracking (PENDING, PROCESSING, SHIPPED, DELIVERED), and Order Details tracking.
+* **Cart Detail Module:** Cart item details connecting carts with products.
+* **Order Module:** Order processing and status tracking (PENDING, PROCESSING, SHIPPED, DELIVERED).
+* **Order Detail Module:** Order item details connecting orders with products.
 
 ---
 
@@ -77,8 +79,8 @@ src/main/java/com.Fptu.eCommerce
 * `Users`
 * `Categories`
 * `Products`
-* `Carts` & `CartItems`
-* `Orders` & `OrderDetails`
+* `Carts` & `CartItems` (`CartDetail`)
+* `Orders` & `OrderDetails` (`OrderDetail`)
 
 **Entity Relationships:**
 * `User` (1) ↔ (1) `Cart`
